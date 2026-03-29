@@ -28,7 +28,7 @@ https://my.home-assistant.io/create-automation/?blueprint_url=https://raw.github
 
 ### 2. IKEA BILRESA Scroll Wheel
 
-**Source:** [jhol-byte](https://gist.githubusercontent.com/jhol-byte/b2731a4d2476f530d76b9ff409f7f3a4/raw/a71e9a61a8257e7449fc779b9c4b2d9834639f1b/Ikea_bilresa_scroll_wheel.yaml) (modified)  
+**Source:** [jhol-byte](https://gist.githubusercontent.com/jhol-byte/b2731a4d2476f530d76b9ff409f7f3a4/raw/a71e9a61a8257e7449fc779b9c4b2d9834639f1b/Ikea_bilresa_scroll_wheel.yaml) (modified)
 **Version:** 2026-03-22  
 
 #### Capabilities
