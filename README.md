@@ -17,7 +17,7 @@ Custom automation blueprints for IKEA BILRESA Matter devices with Matter over Th
 - Prevents re-triggering on Matter server reboot via availability state filtering
 
 #### Import
-[![Import Blueprint for the Bilresa Dual Button Remote](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Faydinseven7%2Fha-blueprints%2Fmain%2Fhome-assistant%2Fblueprints%2Fbilresa-dual-button.yaml)
+[![Import Bilresa Dual Button Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Faydinseven7%2Fha-blueprints%2Frefs%2Fheads%2Fmain%2Fbilresa-dual-button.yaml)
 
 ---
 
@@ -41,7 +41,7 @@ Custom automation blueprints for IKEA BILRESA Matter devices with Matter over Th
 - Supports both "relaxed" (batched) and "instant" (real-time) scroll evaluation modes
 
 #### Import
-[![Import Scroll Wheel Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Faydinseven7%2Fha-blueprints%2Fmain%2Fhome-assistant%2Fblueprints%2Fbilresa-scroll-wheel.yaml)
+[![Import Scroll Wheel Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Faydinseven7%2Fha-blueprints%2Frefs%2Fheads%2Fmain%2Fbilresa-scroll-wheel.yaml)
 
 ---
 
