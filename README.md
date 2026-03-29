@@ -17,18 +17,13 @@ Custom automation blueprints for IKEA BILRESA Matter devices with Matter over Th
 - Prevents re-triggering on Matter server reboot via availability state filtering
 
 #### Import
-[![Import Dual Button Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/create-automation/?blueprint_url=https://raw.githubusercontent.com/aydinseven7/ha-blueprints/main/home-assistant/blueprints/bilresa-dual-button.yaml)
-
-**Direct Link:**
-```
-https://my.home-assistant.io/create-automation/?blueprint_url=https://raw.githubusercontent.com/aydinseven7/ha-blueprints/main/home-assistant/blueprints/bilresa-dual-button.yaml
-```
+[![Import Blueprint for the Bilresa Dual Button Remote](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Faydinseven7%2Fha-blueprints%2Fmain%2Fhome-assistant%2Fblueprints%2Fbilresa-dual-button.yaml)
 
 ---
 
 ### 2. IKEA BILRESA Scroll Wheel
 
-**Source:** [jhol-byte](https://gist.githubusercontent.com/jhol-byte/b2731a4d2476f530d76b9ff409f7f3a4/raw/a71e9a61a8257e7449fc779b9c4b2d9834639f1b/Ikea_bilresa_scroll_wheel.yaml) (modified)
+**Source:** [jhol-byte](https://gist.githubusercontent.com/jhol-byte/b2731a4d2476f530d76b9ff409f7f3a4/raw/a71e9a61a8257e7449fc779b9c4b2d9834639f1b/Ikea_bilresa_scroll_wheel.yaml) (modified)  
 **Version:** 2026-03-22  
 
 #### Capabilities
@@ -46,12 +41,7 @@ https://my.home-assistant.io/create-automation/?blueprint_url=https://raw.github
 - Supports both "relaxed" (batched) and "instant" (real-time) scroll evaluation modes
 
 #### Import
-[![Import Scroll Wheel Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/create-automation/?blueprint_url=https://raw.githubusercontent.com/aydinseven7/ha-blueprints/main/home-assistant/blueprints/bilresa-scroll-wheel.yaml)
-
-**Direct Link:**
-```
-https://my.home-assistant.io/create-automation/?blueprint_url=https://raw.githubusercontent.com/aydinseven7/ha-blueprints/main/home-assistant/blueprints/bilresa-scroll-wheel.yaml
-```
+[![Import Scroll Wheel Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Faydinseven7%2Fha-blueprints%2Fmain%2Fhome-assistant%2Fblueprints%2Fbilresa-scroll-wheel.yaml)
 
 ---
 
