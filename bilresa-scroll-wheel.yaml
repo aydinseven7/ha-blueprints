@@ -17,7 +17,38 @@ blueprint:
             manufacturer: IKEA of Sweden
             model: BILRESA scroll wheel
 
-    # input selectors: channel 1
+    # input selectors: channel 1 - event entities
+    channel1_entities:
+      name: Channel 1 Event Entities
+      description: "Optional: Select specific event entities for Channel 1. Leave empty to auto-detect."
+      collapsed: true
+      input:
+        button_ch1_entity:
+          name: "Channel 1: Button event entity"
+          description: "Event entity for button clicks/long press (e.g., event.bilresa_...button_3)"
+          default: ""
+          selector:
+            entity:
+              domain: event
+              multiple: false
+        scroll_left_ch1_entity:
+          name: "Channel 1: Scroll left event entity"
+          description: "Event entity for scroll left (e.g., event.bilresa_...2)"
+          default: ""
+          selector:
+            entity:
+              domain: event
+              multiple: false
+        scroll_right_ch1_entity:
+          name: "Channel 1: Scroll right event entity"
+          description: "Event entity for scroll right (e.g., event.bilresa_...1)"
+          default: ""
+          selector:
+            entity:
+              domain: event
+              multiple: false
+
+    # input selectors: channel 1 - regular inputs
     channel1_section:
       name: Channel 1
       collapsed: true
@@ -115,7 +146,38 @@ blueprint:
           selector:
             action: {}
 
-    # input selectors: channel 2
+    # input selectors: channel 2 - event entities
+    channel2_entities:
+      name: Channel 2 Event Entities
+      description: "Optional: Select specific event entities for Channel 2. Leave empty to auto-detect."
+      collapsed: true
+      input:
+        button_ch2_entity:
+          name: "Channel 2: Button event entity"
+          description: "Event entity for button clicks/long press"
+          default: ""
+          selector:
+            entity:
+              domain: event
+              multiple: false
+        scroll_left_ch2_entity:
+          name: "Channel 2: Scroll left event entity"
+          description: "Event entity for scroll left"
+          default: ""
+          selector:
+            entity:
+              domain: event
+              multiple: false
+        scroll_right_ch2_entity:
+          name: "Channel 2: Scroll right event entity"
+          description: "Event entity for scroll right"
+          default: ""
+          selector:
+            entity:
+              domain: event
+              multiple: false
+
+    # input selectors: channel 2 - regular inputs
     channel2_section:
       name: Channel 2
       collapsed: true
@@ -213,7 +275,38 @@ blueprint:
             action: {}
 
 
-    # input selectors: channel 3
+    # input selectors: channel 3 - event entities
+    channel3_entities:
+      name: Channel 3 Event Entities
+      description: "Optional: Select specific event entities for Channel 3. Leave empty to auto-detect."
+      collapsed: true
+      input:
+        button_ch3_entity:
+          name: "Channel 3: Button event entity"
+          description: "Event entity for button clicks/long press"
+          default: ""
+          selector:
+            entity:
+              domain: event
+              multiple: false
+        scroll_left_ch3_entity:
+          name: "Channel 3: Scroll left event entity"
+          description: "Event entity for scroll left"
+          default: ""
+          selector:
+            entity:
+              domain: event
+              multiple: false
+        scroll_right_ch3_entity:
+          name: "Channel 3: Scroll right event entity"
+          description: "Event entity for scroll right"
+          default: ""
+          selector:
+            entity:
+              domain: event
+              multiple: false
+
+    # input selectors: channel 3 - regular inputs
     channel3_section:
       name: Channel 3
       collapsed: true
@@ -436,91 +529,59 @@ blueprint:
 # automation logic
 alias: Ikea_bilresa_scroll_wheel
 trigger:
+  # Channel 1 triggers - only if entity manually selected
   - platform: state
-    entity_id: "{{ var_button_ch1 }}"
+    entity_id: !input button_ch1_entity
     not_from: 'unavailable'
     not_to: 'unavailable'
     id: button_ch1
   - platform: state
-    entity_id: "{{ var_scroll_left_ch1 }}"
+    entity_id: !input scroll_left_ch1_entity
     not_from: 'unavailable'
     not_to: 'unavailable'
     id: scroll_left_ch1
   - platform: state
-    entity_id: "{{ var_scroll_right_ch1 }}"
+    entity_id: !input scroll_right_ch1_entity
     not_from: 'unavailable'
     not_to: 'unavailable'
     id: scroll_right_ch1
-  - platform: state
-    entity_id: "{{ var_scroll_left_ext_ch1 }}"
-    not_from: 'unavailable'
-    not_to: 'unavailable'
-    id: scroll_left_ext_ch1
-  - platform: state
-    entity_id: "{{ var_scroll_right_ext_ch1 }}"
-    not_from: 'unavailable'
-    not_to: 'unavailable'
-    id: scroll_right_ext_ch1
 
+  # Channel 2 triggers - only if entity manually selected
   - platform: state
-    entity_id: "{{ var_button_ch2 }}"
+    entity_id: !input button_ch2_entity
     not_from: 'unavailable'
     not_to: 'unavailable'
     id: button_ch2
   - platform: state
-    entity_id: "{{ var_scroll_left_ch2 }}"
+    entity_id: !input scroll_left_ch2_entity
     not_from: 'unavailable'
     not_to: 'unavailable'
     id: scroll_left_ch2
   - platform: state
-    entity_id: "{{ var_scroll_right_ch2 }}"
+    entity_id: !input scroll_right_ch2_entity
     not_from: 'unavailable'
     not_to: 'unavailable'
     id: scroll_right_ch2
-  - platform: state
-    entity_id: "{{ var_scroll_left_ext_ch2 }}"
-    not_from: 'unavailable'
-    not_to: 'unavailable'
-    id: scroll_left_ext_ch2
-  - platform: state
-    entity_id: "{{ var_scroll_right_ext_ch2 }}"
-    not_from: 'unavailable'
-    not_to: 'unavailable'
-    id: scroll_right_ext_ch2
 
+  # Channel 3 triggers - only if entity manually selected
   - platform: state
-    entity_id: "{{ var_button_ch3 }}"
+    entity_id: !input button_ch3_entity
     not_from: 'unavailable'
     not_to: 'unavailable'
     id: button_ch3
   - platform: state
-    entity_id: "{{ var_scroll_left_ch3 }}"
+    entity_id: !input scroll_left_ch3_entity
     not_from: 'unavailable'
     not_to: 'unavailable'
     id: scroll_left_ch3
   - platform: state
-    entity_id: "{{ var_scroll_right_ch3 }}"
+    entity_id: !input scroll_right_ch3_entity
     not_from: 'unavailable'
     not_to: 'unavailable'
     id: scroll_right_ch3
-  - platform: state
-    entity_id: "{{ var_scroll_left_ext_ch3 }}"
-    not_from: 'unavailable'
-    not_to: 'unavailable'
-    id: scroll_left_ext_ch3
-  - platform: state
-    entity_id: "{{ var_scroll_right_ext_ch3 }}"
-    not_from: 'unavailable'
-    not_to: 'unavailable'
-    id: scroll_right_ext_ch3
 
 
-condition:
-  - condition: template
-    value_template: >
-      {{ var_button_ch1 != 'unknown' or var_scroll_left_ch1 != 'unknown' or var_scroll_right_ch1 != 'unknown' or 
-         var_button_ch2 != 'unknown' or var_scroll_left_ch2 != 'unknown' or var_scroll_right_ch2 != 'unknown' or
-         var_button_ch3 != 'unknown' or var_scroll_left_ch3 != 'unknown' or var_scroll_right_ch3 != 'unknown' }}
+condition: []
 action:
   - variables:
       channel: >-
@@ -749,6 +810,122 @@ mode: queued
 max: !input max_queued_automation_calls
 max_exceeded: silent
 variables:
+  var_remote: !input remote
+  
+  # Channel 1 - use manual selection or auto-detect
+  var_button_ch1: >-
+    {%- if !input button_ch1_entity != '' -%}
+      {{ !input button_ch1_entity }}
+    {%- else -%}
+      {%- set ns = namespace(found='') -%}
+      {%- for item in device_entities(var_remote) -%}
+        {%- if 'event' in item and ('_3' in item or '_button' in item) -%}
+          {%- set ns.found = item -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {{ ns.found if ns.found else 'unknown' }}
+    {%- endif -%}
+  var_scroll_left_ch1: >-
+    {%- if !input scroll_left_ch1_entity != '' -%}
+      {{ !input scroll_left_ch1_entity }}
+    {%- else -%}
+      {%- set ns = namespace(found='') -%}
+      {%- for item in device_entities(var_remote) -%}
+        {%- if 'event' in item and '_2' in item -%}
+          {%- set ns.found = item -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {{ ns.found if ns.found else 'unknown' }}
+    {%- endif -%}
+  var_scroll_right_ch1: >-
+    {%- if !input scroll_right_ch1_entity != '' -%}
+      {{ !input scroll_right_ch1_entity }}
+    {%- else -%}
+      {%- set ns = namespace(found='') -%}
+      {%- for item in device_entities(var_remote) -%}
+        {%- if 'event' in item and '_1' in item -%}
+          {%- set ns.found = item -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {{ ns.found if ns.found else 'unknown' }}
+    {%- endif -%}
+  
+  # Channel 2 - use manual selection or auto-detect
+  var_button_ch2: >-
+    {%- if !input button_ch2_entity != '' -%}
+      {{ !input button_ch2_entity }}
+    {%- else -%}
+      {%- set ns = namespace(found='') -%}
+      {%- for item in device_entities(var_remote) -%}
+        {%- if 'event' in item and '_6' in item -%}
+          {%- set ns.found = item -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {{ ns.found if ns.found else 'unknown' }}
+    {%- endif -%}
+  var_scroll_left_ch2: >-
+    {%- if !input scroll_left_ch2_entity != '' -%}
+      {{ !input scroll_left_ch2_entity }}
+    {%- else -%}
+      {%- set ns = namespace(found='') -%}
+      {%- for item in device_entities(var_remote) -%}
+        {%- if 'event' in item and '_5' in item -%}
+          {%- set ns.found = item -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {{ ns.found if ns.found else 'unknown' }}
+    {%- endif -%}
+  var_scroll_right_ch2: >-
+    {%- if !input scroll_right_ch2_entity != '' -%}
+      {{ !input scroll_right_ch2_entity }}
+    {%- else -%}
+      {%- set ns = namespace(found='') -%}
+      {%- for item in device_entities(var_remote) -%}
+        {%- if 'event' in item and '_4' in item -%}
+          {%- set ns.found = item -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {{ ns.found if ns.found else 'unknown' }}
+    {%- endif -%}
+
+  # Channel 3 - use manual selection or auto-detect
+  var_button_ch3: >-
+    {%- if !input button_ch3_entity != '' -%}
+      {{ !input button_ch3_entity }}
+    {%- else -%}
+      {%- set ns = namespace(found='') -%}
+      {%- for item in device_entities(var_remote) -%}
+        {%- if 'event' in item and '_9' in item -%}
+          {%- set ns.found = item -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {{ ns.found if ns.found else 'unknown' }}
+    {%- endif -%}
+  var_scroll_left_ch3: >-
+    {%- if !input scroll_left_ch3_entity != '' -%}
+      {{ !input scroll_left_ch3_entity }}
+    {%- else -%}
+      {%- set ns = namespace(found='') -%}
+      {%- for item in device_entities(var_remote) -%}
+        {%- if 'event' in item and '_8' in item -%}
+          {%- set ns.found = item -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {{ ns.found if ns.found else 'unknown' }}
+    {%- endif -%}
+  var_scroll_right_ch3: >-
+    {%- if !input scroll_right_ch3_entity != '' -%}
+      {{ !input scroll_right_ch3_entity }}
+    {%- else -%}
+      {%- set ns = namespace(found='') -%}
+      {%- for item in device_entities(var_remote) -%}
+        {%- if 'event' in item and '_7' in item -%}
+          {%- set ns.found = item -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {{ ns.found if ns.found else 'unknown' }}
+    {%- endif -%}
+  
   vars: {'targets_entities_ch1': !input scroll_wheel_target_ch1, 'targets_entities_ch2': !input scroll_wheel_target_ch2, 'targets_entities_ch3': !input scroll_wheel_target_ch3, 
   'scroll_wheel_mode_ch1': !input scroll_wheel_mode_ch1, 'scroll_wheel_mode_ch2': !input scroll_wheel_mode_ch2, 'scroll_wheel_mode_ch3': !input scroll_wheel_mode_ch3,
   'scroll_wheel_mode_ext_ch1': !input scroll_wheel_mode_ext_ch1, 'scroll_wheel_mode_ext_ch2': !input scroll_wheel_mode_ext_ch2, 'scroll_wheel_mode_ext_ch3': !input scroll_wheel_mode_ext_ch3,
@@ -767,130 +944,3 @@ variables:
   var_volume_step_pct: !input volume_step_pct
   var_volume_max_pct: !input volume_max_pct
   var_volume_use_up_down_for_instant: !input volume_use_up_down_for_instant
-
-trigger_variables:
-  var_remote: !input remote
-  
-  # get all event names from device_id only
-  var_button_ch1: >-
-    {%- set ns = namespace(found='') -%}
-    {%- for item in device_entities(var_remote) -%}
-      {%- if 'event' in item and ('_3' in item or '_button' in item) -%}
-        {%- set ns.found = item -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {{ ns.found if ns.found else 'unknown' }}
-  var_scroll_left_ch1: >-
-    {%- set ns = namespace(found='') -%}
-    {%- for item in device_entities(var_remote) -%}
-      {%- if 'event' in item and '_2' in item -%}
-        {%- set ns.found = item -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {{ ns.found if ns.found else 'unknown' }}
-  var_scroll_right_ch1: >-
-    {%- set ns = namespace(found='') -%}
-    {%- for item in device_entities(var_remote) -%}
-      {%- if 'event' in item and '_1' in item -%}
-        {%- set ns.found = item -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {{ ns.found if ns.found else 'unknown' }}
-  var_scroll_left_ext_ch1: >-
-    {%- set ns = namespace(found='') -%}
-    {%- for item in device_entities(var_remote) -%}
-      {%- if 'sensor' in item and '_2' in item -%}
-        {%- set ns.found = item -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {{ ns.found if ns.found else 'unknown' }}
-  var_scroll_right_ext_ch1: >-
-    {%- set ns = namespace(found='') -%}
-    {%- for item in device_entities(var_remote) -%}
-      {%- if 'sensor' in item and '_1' in item -%}
-        {%- set ns.found = item -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {{ ns.found if ns.found else 'unknown' }}
-
-  var_button_ch2: >-
-    {%- set ns = namespace(found='') -%}
-    {%- for item in device_entities(var_remote) -%}
-      {%- if 'event' in item and '_6' in item -%}
-        {%- set ns.found = item -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {{ ns.found if ns.found else 'unknown' }}
-  var_scroll_left_ch2: >-
-    {%- set ns = namespace(found='') -%}
-    {%- for item in device_entities(var_remote) -%}
-      {%- if 'event' in item and '_5' in item -%}
-        {%- set ns.found = item -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {{ ns.found if ns.found else 'unknown' }}
-  var_scroll_right_ch2: >-
-    {%- set ns = namespace(found='') -%}
-    {%- for item in device_entities(var_remote) -%}
-      {%- if 'event' in item and '_4' in item -%}
-        {%- set ns.found = item -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {{ ns.found if ns.found else 'unknown' }}
-  var_scroll_left_ext_ch2: >-
-    {%- set ns = namespace(found='') -%}
-    {%- for item in device_entities(var_remote) -%}
-      {%- if 'sensor' in item and '_5' in item -%}
-        {%- set ns.found = item -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {{ ns.found if ns.found else 'unknown' }}
-  var_scroll_right_ext_ch2: >-
-    {%- set ns = namespace(found='') -%}
-    {%- for item in device_entities(var_remote) -%}
-      {%- if 'sensor' in item and '_4' in item -%}
-        {%- set ns.found = item -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {{ ns.found if ns.found else 'unknown' }}
-
-  var_button_ch3: >-
-    {%- set ns = namespace(found='') -%}
-    {%- for item in device_entities(var_remote) -%}
-      {%- if 'event' in item and '_9' in item -%}
-        {%- set ns.found = item -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {{ ns.found if ns.found else 'unknown' }}
-  var_scroll_left_ch3: >-
-    {%- set ns = namespace(found='') -%}
-    {%- for item in device_entities(var_remote) -%}
-      {%- if 'event' in item and '_8' in item -%}
-        {%- set ns.found = item -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {{ ns.found if ns.found else 'unknown' }}
-  var_scroll_right_ch3: >-
-    {%- set ns = namespace(found='') -%}
-    {%- for item in device_entities(var_remote) -%}
-      {%- if 'event' in item and '_7' in item -%}
-        {%- set ns.found = item -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {{ ns.found if ns.found else 'unknown' }}
-  var_scroll_left_ext_ch3: >-
-    {%- set ns = namespace(found='') -%}
-    {%- for item in device_entities(var_remote) -%}
-      {%- if 'sensor' in item and '_8' in item -%}
-        {%- set ns.found = item -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {{ ns.found if ns.found else 'unknown' }}
-  var_scroll_right_ext_ch3: >-
-    {%- set ns = namespace(found='') -%}
-    {%- for item in device_entities(var_remote) -%}
-      {%- if 'sensor' in item and '_7' in item -%}
-        {%- set ns.found = item -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {{ ns.found if ns.found else 'unknown' }}
