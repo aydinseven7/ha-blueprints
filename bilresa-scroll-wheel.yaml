@@ -941,11 +941,22 @@ variables:
       {{ ns.found if ns.found else 'unknown' }}
     {%- endif -%}
   
-  vars: {'targets_entities_ch1': !input scroll_wheel_target_ch1, 'targets_entities_ch2': !input scroll_wheel_target_ch2, 'targets_entities_ch3': !input scroll_wheel_target_ch3, 
-  'scroll_wheel_mode_ch1': !input scroll_wheel_mode_ch1, 'scroll_wheel_mode_ch2': !input scroll_wheel_mode_ch2, 'scroll_wheel_mode_ch3': !input scroll_wheel_mode_ch3,
-  'scroll_wheel_mode_ext_ch1': !input scroll_wheel_mode_ext_ch1, 'scroll_wheel_mode_ext_ch2': !input scroll_wheel_mode_ext_ch2, 'scroll_wheel_mode_ext_ch3': !input scroll_wheel_mode_ext_ch3,
-  'scroll_wheel_mode_dynamic_ch1': !input scroll_wheel_mode_dynamic_ch1, 'scroll_wheel_mode_dynamic_ch2': !input scroll_wheel_mode_dynamic_ch2, 'scroll_wheel_mode_dynamic_ch3': !input scroll_wheel_mode_dynamic_ch3
-  }
+  vars:
+    targets_entities_ch1: !input scroll_wheel_target_ch1
+    targets_entities_ch2: !input scroll_wheel_target_ch2
+    targets_entities_ch3: !input scroll_wheel_target_ch3
+
+    scroll_wheel_mode_ch1: !input scroll_wheel_mode_ch1
+    scroll_wheel_mode_ch2: !input scroll_wheel_mode_ch2
+    scroll_wheel_mode_ch3: !input scroll_wheel_mode_ch3
+
+    scroll_wheel_mode_ext_ch1: !input scroll_wheel_mode_ext_ch1
+    scroll_wheel_mode_ext_ch2: !input scroll_wheel_mode_ext_ch2
+    scroll_wheel_mode_ext_ch3: !input scroll_wheel_mode_ext_ch3
+
+    scroll_wheel_mode_dynamic_ch1: !input scroll_wheel_mode_dynamic_ch1
+    scroll_wheel_mode_dynamic_ch2: !input scroll_wheel_mode_dynamic_ch2
+    scroll_wheel_mode_dynamic_ch3: !input scroll_wheel_mode_dynamic_ch3
 
   var_min_pct: !input dim_min_pct
   var_dim_step_pct: !input dim_step_pct
