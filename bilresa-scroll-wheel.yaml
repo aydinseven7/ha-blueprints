@@ -515,7 +515,12 @@ trigger:
     id: scroll_right_ext_ch3
 
 
-condition: []
+condition:
+  - condition: template
+    value_template: >
+      {{ var_button_ch1 != 'unknown' or var_scroll_left_ch1 != 'unknown' or var_scroll_right_ch1 != 'unknown' or 
+         var_button_ch2 != 'unknown' or var_scroll_left_ch2 != 'unknown' or var_scroll_right_ch2 != 'unknown' or
+         var_button_ch3 != 'unknown' or var_scroll_left_ch3 != 'unknown' or var_scroll_right_ch3 != 'unknown' }}
 action:
   - variables:
       channel: >-
@@ -768,109 +773,124 @@ trigger_variables:
   
   # get all event names from device_id only
   var_button_ch1: >-
-    {% for item in device_entities(var_remote) %}
-    {% set match = item | regex_findall(find='^event\..+[a-zA-Z]_3.*$') %}
-    {% if (match | length) > 0 %}
-      {{ match[0] }}
-    {% endif %}
-    {% endfor %}
+    {%- set ns = namespace(found='') -%}
+    {%- for item in device_entities(var_remote) -%}
+      {%- if 'event' in item and ('_3' in item or '_button' in item) -%}
+        {%- set ns.found = item -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ ns.found if ns.found else 'unknown' }}
   var_scroll_left_ch1: >-
-    {% for item in device_entities(var_remote) %}
-    {% set match = item | regex_findall(find='^event\..+[a-zA-Z]_2.*$') %}
-    {% if (match | length) > 0 %}
-      {{ match[0] }}
-    {% endif %}
-    {% endfor %}
+    {%- set ns = namespace(found='') -%}
+    {%- for item in device_entities(var_remote) -%}
+      {%- if 'event' in item and '_2' in item -%}
+        {%- set ns.found = item -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ ns.found if ns.found else 'unknown' }}
   var_scroll_right_ch1: >-
-    {% for item in device_entities(var_remote) %}
-    {% set match = item | regex_findall(find='^event\..+[a-zA-Z]_1.*$') %}
-    {% if (match | length) > 0 %}
-      {{ match[0] }}
-    {% endif %}
-    {% endfor %}
+    {%- set ns = namespace(found='') -%}
+    {%- for item in device_entities(var_remote) -%}
+      {%- if 'event' in item and '_1' in item -%}
+        {%- set ns.found = item -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ ns.found if ns.found else 'unknown' }}
   var_scroll_left_ext_ch1: >-
-    {% for item in device_entities(var_remote) %}
-    {% set match = item | regex_findall(find='^sensor\..+[a-zA-Z]_2.*$') %}
-    {% if (match | length) > 0 %}
-      {{ match[0] }}
-    {% endif %}
-    {% endfor %}
+    {%- set ns = namespace(found='') -%}
+    {%- for item in device_entities(var_remote) -%}
+      {%- if 'sensor' in item and '_2' in item -%}
+        {%- set ns.found = item -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ ns.found if ns.found else 'unknown' }}
   var_scroll_right_ext_ch1: >-
-    {% for item in device_entities(var_remote) %}
-    {% set match = item | regex_findall(find='^sensor\..+[a-zA-Z]_1.*$') %}
-    {% if (match | length) > 0 %}
-      {{ match[0] }}
-    {% endif %}
-    {% endfor %}
+    {%- set ns = namespace(found='') -%}
+    {%- for item in device_entities(var_remote) -%}
+      {%- if 'sensor' in item and '_1' in item -%}
+        {%- set ns.found = item -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ ns.found if ns.found else 'unknown' }}
 
   var_button_ch2: >-
-    {% for item in device_entities(var_remote) %}
-    {% set match = item | regex_findall(find='^event\..+[a-zA-Z]_6.*$') %}
-    {% if (match | length) > 0 %}
-      {{ match[0] }}
-    {% endif %}
-    {% endfor %}
+    {%- set ns = namespace(found='') -%}
+    {%- for item in device_entities(var_remote) -%}
+      {%- if 'event' in item and '_6' in item -%}
+        {%- set ns.found = item -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ ns.found if ns.found else 'unknown' }}
   var_scroll_left_ch2: >-
-    {% for item in device_entities(var_remote) %}
-    {% set match = item | regex_findall(find='^event\..+[a-zA-Z]_5.*$') %}
-    {% if (match | length) > 0 %}
-      {{ match[0] }}
-    {% endif %}
-    {% endfor %}
+    {%- set ns = namespace(found='') -%}
+    {%- for item in device_entities(var_remote) -%}
+      {%- if 'event' in item and '_5' in item -%}
+        {%- set ns.found = item -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ ns.found if ns.found else 'unknown' }}
   var_scroll_right_ch2: >-
-    {% for item in device_entities(var_remote) %}
-    {% set match = item | regex_findall(find='^event\..+[a-zA-Z]_4.*$') %}
-    {% if (match | length) > 0 %}
-      {{ match[0] }}
-    {% endif %}
-    {% endfor %}
+    {%- set ns = namespace(found='') -%}
+    {%- for item in device_entities(var_remote) -%}
+      {%- if 'event' in item and '_4' in item -%}
+        {%- set ns.found = item -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ ns.found if ns.found else 'unknown' }}
   var_scroll_left_ext_ch2: >-
-    {% for item in device_entities(var_remote) %}
-    {% set match = item | regex_findall(find='^sensor\..+[a-zA-Z]_5.*$') %}
-    {% if (match | length) > 0 %}
-      {{ match[0] }}
-    {% endif %}
-    {% endfor %}
+    {%- set ns = namespace(found='') -%}
+    {%- for item in device_entities(var_remote) -%}
+      {%- if 'sensor' in item and '_5' in item -%}
+        {%- set ns.found = item -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ ns.found if ns.found else 'unknown' }}
   var_scroll_right_ext_ch2: >-
-    {% for item in device_entities(var_remote) %}
-    {% set match = item | regex_findall(find='^sensor\..+[a-zA-Z]_4.*$') %}
-    {% if (match | length) > 0 %}
-      {{ match[0] }}
-    {% endif %}
-    {% endfor %}
+    {%- set ns = namespace(found='') -%}
+    {%- for item in device_entities(var_remote) -%}
+      {%- if 'sensor' in item and '_4' in item -%}
+        {%- set ns.found = item -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ ns.found if ns.found else 'unknown' }}
 
   var_button_ch3: >-
-    {% for item in device_entities(var_remote) %}
-    {% set match = item | regex_findall(find='^event\..+[a-zA-Z]_9.*$') %}
-    {% if (match | length) > 0 %}
-      {{ match[0] }}
-    {% endif %}
-    {% endfor %}
+    {%- set ns = namespace(found='') -%}
+    {%- for item in device_entities(var_remote) -%}
+      {%- if 'event' in item and '_9' in item -%}
+        {%- set ns.found = item -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ ns.found if ns.found else 'unknown' }}
   var_scroll_left_ch3: >-
-    {% for item in device_entities(var_remote) %}
-    {% set match = item | regex_findall(find='^event\..+[a-zA-Z]_8.*$') %}
-    {% if (match | length) > 0 %}
-      {{ match[0] }}
-    {% endif %}
-    {% endfor %}
+    {%- set ns = namespace(found='') -%}
+    {%- for item in device_entities(var_remote) -%}
+      {%- if 'event' in item and '_8' in item -%}
+        {%- set ns.found = item -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ ns.found if ns.found else 'unknown' }}
   var_scroll_right_ch3: >-
-    {% for item in device_entities(var_remote) %}
-    {% set match = item | regex_findall(find='^event\..+[a-zA-Z]_7.*$') %}
-    {% if (match | length) > 0 %}
-      {{ match[0] }}
-    {% endif %}
-    {% endfor %}
+    {%- set ns = namespace(found='') -%}
+    {%- for item in device_entities(var_remote) -%}
+      {%- if 'event' in item and '_7' in item -%}
+        {%- set ns.found = item -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ ns.found if ns.found else 'unknown' }}
   var_scroll_left_ext_ch3: >-
-    {% for item in device_entities(var_remote) %}
-    {% set match = item | regex_findall(find='^sensor\..+[a-zA-Z]_8.*$') %}
-    {% if (match | length) > 0 %}
-      {{ match[0] }}
-    {% endif %}
-    {% endfor %}
+    {%- set ns = namespace(found='') -%}
+    {%- for item in device_entities(var_remote) -%}
+      {%- if 'sensor' in item and '_8' in item -%}
+        {%- set ns.found = item -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ ns.found if ns.found else 'unknown' }}
   var_scroll_right_ext_ch3: >-
-    {% for item in device_entities(var_remote) %}
-    {% set match = item | regex_findall(find='^sensor\..+[a-zA-Z]_7.*$') %}
-    {% if (match | length) > 0 %}
-      {{ match[0] }}
-    {% endif %}
-    {% endfor %}
+    {%- set ns = namespace(found='') -%}
+    {%- for item in device_entities(var_remote) -%}
+      {%- if 'sensor' in item and '_7' in item -%}
+        {%- set ns.found = item -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{ ns.found if ns.found else 'unknown' }}
