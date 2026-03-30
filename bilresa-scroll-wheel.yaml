@@ -812,10 +812,25 @@ max_exceeded: silent
 variables:
   var_remote: !input remote
   
+  # Input references for Channel 1
+  button_ch1_input: !input button_ch1_entity
+  scroll_left_ch1_input: !input scroll_left_ch1_entity
+  scroll_right_ch1_input: !input scroll_right_ch1_entity
+  
+  # Input references for Channel 2
+  button_ch2_input: !input button_ch2_entity
+  scroll_left_ch2_input: !input scroll_left_ch2_entity
+  scroll_right_ch2_input: !input scroll_right_ch2_entity
+  
+  # Input references for Channel 3
+  button_ch3_input: !input button_ch3_entity
+  scroll_left_ch3_input: !input scroll_left_ch3_entity
+  scroll_right_ch3_input: !input scroll_right_ch3_entity
+  
   # Channel 1 - use manual selection or auto-detect
   var_button_ch1: >-
-    {%- if !input button_ch1_entity != '' -%}
-      {{ !input button_ch1_entity }}
+    {%- if button_ch1_input != '' -%}
+      {{ button_ch1_input }}
     {%- else -%}
       {%- set ns = namespace(found='') -%}
       {%- for item in device_entities(var_remote) -%}
@@ -826,8 +841,8 @@ variables:
       {{ ns.found if ns.found else 'unknown' }}
     {%- endif -%}
   var_scroll_left_ch1: >-
-    {%- if !input scroll_left_ch1_entity != '' -%}
-      {{ !input scroll_left_ch1_entity }}
+    {%- if scroll_left_ch1_input != '' -%}
+      {{ scroll_left_ch1_input }}
     {%- else -%}
       {%- set ns = namespace(found='') -%}
       {%- for item in device_entities(var_remote) -%}
@@ -838,8 +853,8 @@ variables:
       {{ ns.found if ns.found else 'unknown' }}
     {%- endif -%}
   var_scroll_right_ch1: >-
-    {%- if !input scroll_right_ch1_entity != '' -%}
-      {{ !input scroll_right_ch1_entity }}
+    {%- if scroll_right_ch1_input != '' -%}
+      {{ scroll_right_ch1_input }}
     {%- else -%}
       {%- set ns = namespace(found='') -%}
       {%- for item in device_entities(var_remote) -%}
@@ -852,8 +867,8 @@ variables:
   
   # Channel 2 - use manual selection or auto-detect
   var_button_ch2: >-
-    {%- if !input button_ch2_entity != '' -%}
-      {{ !input button_ch2_entity }}
+    {%- if button_ch2_input != '' -%}
+      {{ button_ch2_input }}
     {%- else -%}
       {%- set ns = namespace(found='') -%}
       {%- for item in device_entities(var_remote) -%}
@@ -864,8 +879,8 @@ variables:
       {{ ns.found if ns.found else 'unknown' }}
     {%- endif -%}
   var_scroll_left_ch2: >-
-    {%- if !input scroll_left_ch2_entity != '' -%}
-      {{ !input scroll_left_ch2_entity }}
+    {%- if scroll_left_ch2_input != '' -%}
+      {{ scroll_left_ch2_input }}
     {%- else -%}
       {%- set ns = namespace(found='') -%}
       {%- for item in device_entities(var_remote) -%}
@@ -876,8 +891,8 @@ variables:
       {{ ns.found if ns.found else 'unknown' }}
     {%- endif -%}
   var_scroll_right_ch2: >-
-    {%- if !input scroll_right_ch2_entity != '' -%}
-      {{ !input scroll_right_ch2_entity }}
+    {%- if scroll_right_ch2_input != '' -%}
+      {{ scroll_right_ch2_input }}
     {%- else -%}
       {%- set ns = namespace(found='') -%}
       {%- for item in device_entities(var_remote) -%}
@@ -890,8 +905,8 @@ variables:
 
   # Channel 3 - use manual selection or auto-detect
   var_button_ch3: >-
-    {%- if !input button_ch3_entity != '' -%}
-      {{ !input button_ch3_entity }}
+    {%- if button_ch3_input != '' -%}
+      {{ button_ch3_input }}
     {%- else -%}
       {%- set ns = namespace(found='') -%}
       {%- for item in device_entities(var_remote) -%}
@@ -902,8 +917,8 @@ variables:
       {{ ns.found if ns.found else 'unknown' }}
     {%- endif -%}
   var_scroll_left_ch3: >-
-    {%- if !input scroll_left_ch3_entity != '' -%}
-      {{ !input scroll_left_ch3_entity }}
+    {%- if scroll_left_ch3_input != '' -%}
+      {{ scroll_left_ch3_input }}
     {%- else -%}
       {%- set ns = namespace(found='') -%}
       {%- for item in device_entities(var_remote) -%}
@@ -914,8 +929,8 @@ variables:
       {{ ns.found if ns.found else 'unknown' }}
     {%- endif -%}
   var_scroll_right_ch3: >-
-    {%- if !input scroll_right_ch3_entity != '' -%}
-      {{ !input scroll_right_ch3_entity }}
+    {%- if scroll_right_ch3_input != '' -%}
+      {{ scroll_right_ch3_input }}
     {%- else -%}
       {%- set ns = namespace(found='') -%}
       {%- for item in device_entities(var_remote) -%}
