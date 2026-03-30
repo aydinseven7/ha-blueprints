@@ -1,5 +1,5 @@
 blueprint:
-  name: Ikea_bilresa_scroll_wheel
+  name: Ikea_bilresa_scroll_wheel_modified
   description: |
       Blueprint for Ikea Bilresa Matter (button and scroll wheel for 3 different channels)
       Version: 2026-03-22
@@ -436,151 +436,86 @@ blueprint:
 # automation logic
 alias: Ikea_bilresa_scroll_wheel
 trigger:
-  - event_type: state_changed
-    event_data:
-      entity_id: "{{ var_button_ch1 }}"
-      old_state:
-        state: !exclude 'unavailable'
-      new_state:
-        state: !exclude 'unavailable'
-    trigger: event
+  - platform: state
+    entity_id: "{{ var_button_ch1 }}"
+    not_from: 'unavailable'
+    not_to: 'unavailable'
     id: button_ch1
-  - event_type: state_changed
-    event_data:
-      entity_id: "{{ var_scroll_left_ch1 }}"
-      old_state:
-        state: !exclude 'unavailable'
-      new_state:
-        state: !exclude 'unavailable'
-    trigger: event
+  - platform: state
+    entity_id: "{{ var_scroll_left_ch1 }}"
+    not_from: 'unavailable'
+    not_to: 'unavailable'
     id: scroll_left_ch1
-  - event_type: state_changed
-    event_data:
-      entity_id: "{{ var_scroll_right_ch1 }}"
-      old_state:
-        state: !exclude 'unavailable'
-      new_state:
-        state: !exclude 'unavailable'
-    trigger: event
+  - platform: state
+    entity_id: "{{ var_scroll_right_ch1 }}"
+    not_from: 'unavailable'
+    not_to: 'unavailable'
     id: scroll_right_ch1
-  - event_type: state_changed
-    event_data:
-      entity_id: "{{ var_scroll_left_ext_ch1 }}"
-      old_state:
-        state: !exclude 'unavailable'
-      new_state:
-        state: !exclude 'unavailable'
-    trigger: event
+  - platform: state
+    entity_id: "{{ var_scroll_left_ext_ch1 }}"
+    not_from: 'unavailable'
+    not_to: 'unavailable'
     id: scroll_left_ext_ch1
-  - event_type: state_changed
-    event_data:
-      entity_id: "{{ var_scroll_right_ext_ch1 }}"
-      old_state:
-        state: !exclude 'unavailable'
-      new_state:
-        state: !exclude 'unavailable'
-    trigger: event
+  - platform: state
+    entity_id: "{{ var_scroll_right_ext_ch1 }}"
+    not_from: 'unavailable'
+    not_to: 'unavailable'
     id: scroll_right_ext_ch1
 
-  - event_type: state_changed
-    event_data:
-      entity_id: "{{ var_button_ch2 }}"
-      old_state:
-        state: !exclude 'unavailable'
-      new_state:
-        state: !exclude 'unavailable'
-    trigger: event
+  - platform: state
+    entity_id: "{{ var_button_ch2 }}"
+    not_from: 'unavailable'
+    not_to: 'unavailable'
     id: button_ch2
-  - event_type: state_changed
-    event_data:
-      entity_id: "{{ var_scroll_left_ch2 }}"
-      old_state:
-        state: !exclude 'unavailable'
-      new_state:
-        state: !exclude 'unavailable'
-    trigger: event
+  - platform: state
+    entity_id: "{{ var_scroll_left_ch2 }}"
+    not_from: 'unavailable'
+    not_to: 'unavailable'
     id: scroll_left_ch2
-  - event_type: state_changed
-    event_data:
-      entity_id: "{{ var_scroll_right_ch2 }}"
-      old_state:
-        state: !exclude 'unavailable'
-      new_state:
-        state: !exclude 'unavailable'
-    trigger: event
+  - platform: state
+    entity_id: "{{ var_scroll_right_ch2 }}"
+    not_from: 'unavailable'
+    not_to: 'unavailable'
     id: scroll_right_ch2
-  - event_type: state_changed
-    event_data:
-      entity_id: "{{ var_scroll_left_ext_ch2 }}"
-      old_state:
-        state: !exclude 'unavailable'
-      new_state:
-        state: !exclude 'unavailable'
-    trigger: event
+  - platform: state
+    entity_id: "{{ var_scroll_left_ext_ch2 }}"
+    not_from: 'unavailable'
+    not_to: 'unavailable'
     id: scroll_left_ext_ch2
-  - event_type: state_changed
-    event_data:
-      entity_id: "{{ var_scroll_right_ext_ch2 }}"
-      old_state:
-        state: !exclude 'unavailable'
-      new_state:
-        state: !exclude 'unavailable'
-    trigger: event
+  - platform: state
+    entity_id: "{{ var_scroll_right_ext_ch2 }}"
+    not_from: 'unavailable'
+    not_to: 'unavailable'
     id: scroll_right_ext_ch2
 
-  - event_type: state_changed
-    event_data:
-      entity_id: "{{ var_button_ch3 }}"
-      old_state:
-        state: !exclude 'unavailable'
-      new_state:
-        state: !exclude 'unavailable'
-    trigger: event
+  - platform: state
+    entity_id: "{{ var_button_ch3 }}"
+    not_from: 'unavailable'
+    not_to: 'unavailable'
     id: button_ch3
-  - event_type: state_changed
-    event_data:
-      entity_id: "{{ var_scroll_left_ch3 }}"
-      old_state:
-        state: !exclude 'unavailable'
-      new_state:
-        state: !exclude 'unavailable'
-    trigger: event
+  - platform: state
+    entity_id: "{{ var_scroll_left_ch3 }}"
+    not_from: 'unavailable'
+    not_to: 'unavailable'
     id: scroll_left_ch3
-  - event_type: state_changed
-    event_data:
-      entity_id: "{{ var_scroll_right_ch3 }}"
-      old_state:
-        state: !exclude 'unavailable'
-      new_state:
-        state: !exclude 'unavailable'
-    trigger: event
+  - platform: state
+    entity_id: "{{ var_scroll_right_ch3 }}"
+    not_from: 'unavailable'
+    not_to: 'unavailable'
     id: scroll_right_ch3
-  - event_type: state_changed
-    event_data:
-      entity_id: "{{ var_scroll_left_ext_ch3 }}"
-      old_state:
-        state: !exclude 'unavailable'
-      new_state:
-        state: !exclude 'unavailable'
-    trigger: event
+  - platform: state
+    entity_id: "{{ var_scroll_left_ext_ch3 }}"
+    not_from: 'unavailable'
+    not_to: 'unavailable'
     id: scroll_left_ext_ch3
-  - event_type: state_changed
-    event_data:
-      entity_id: "{{ var_scroll_right_ext_ch3 }}"
-      old_state:
-        state: !exclude 'unavailable'
-      new_state:
-        state: !exclude 'unavailable'
-    trigger: event
+  - platform: state
+    entity_id: "{{ var_scroll_right_ext_ch3 }}"
+    not_from: 'unavailable'
+    not_to: 'unavailable'
     id: scroll_right_ext_ch3
 
 
-condition:
-  - condition: template
-    value_template: >-
-      {{ trigger.event.data.old_state.state != 'unavailable' 
-         and trigger.event.data.new_state.state != 'unavailable'
-      }}
+condition: []
 action:
   - variables:
       channel: >-
@@ -597,7 +532,7 @@ action:
       - conditions:
           - condition: template
             value_template: >
-              {{ trigger.id == ('button_' ~ channel) and trigger.event.data.new_state.attributes.event_type ==
+              {{ trigger.id == ('button_' ~ channel) and trigger.to_state.attributes.event_type ==
               'multi_press_1' }}
         sequence:
           - if: "{{ channel == 'ch1'}}"
@@ -613,7 +548,7 @@ action:
       - conditions:
           - condition: template
             value_template: >
-              {{ trigger.id == ('button_' ~ channel) and trigger.event.data.new_state.attributes.event_type ==
+              {{ trigger.id == ('button_' ~ channel) and trigger.to_state.attributes.event_type ==
               'multi_press_2' }}
         sequence:
           - if: "{{ channel == 'ch1'}}"
@@ -629,7 +564,7 @@ action:
       - conditions:
           - condition: template
             value_template: >
-              {{ trigger.id == ('button_' ~ channel) and trigger.event.data.new_state.attributes.event_type ==
+              {{ trigger.id == ('button_' ~ channel) and trigger.to_state.attributes.event_type ==
               'multi_press_3' }}
         sequence:
           - if: "{{ channel == 'ch1'}}"
@@ -645,7 +580,7 @@ action:
       - conditions:
           - condition: template
             value_template: >
-              {{ trigger.id == ('button_' ~ channel) and trigger.event.data.new_state.attributes.event_type ==
+              {{ trigger.id == ('button_' ~ channel) and trigger.to_state.attributes.event_type ==
               'long_press' }}
       # button on-hold action
         sequence:
@@ -681,13 +616,13 @@ action:
           - condition: template
             value_template: >
               {{ ( (vars['scroll_wheel_mode_ext_' ~ channel] == 'relaxed') and (trigger.id == ('scroll_left_' ~ channel) or trigger.id == ('scroll_right_' ~ channel))) or
-                 (  (vars['scroll_wheel_mode_ext_' ~ channel] == 'instant') and (trigger.id == ('scroll_left_ext_' ~ channel) or trigger.id == ('scroll_right_ext_' ~ channel)) and trigger.event.data.new_state.state == '1' )  
+                 (  (vars['scroll_wheel_mode_ext_' ~ channel] == 'instant') and (trigger.id == ('scroll_left_ext_' ~ channel) or trigger.id == ('scroll_right_ext_' ~ channel)) and trigger.to_state.state == '1' )  
               }}
         sequence:
           - variables:
               scroll_clicks: >
                 {% if (vars['scroll_wheel_mode_ext_' ~ channel] == 'relaxed') %}
-                  {{ trigger.event.data.new_state.attributes.totalNumberOfPressesCounted }}
+                  {{ trigger.to_state.attributes.totalNumberOfPressesCounted }}
                 {% else %}
                   1
                 {% endif %}
